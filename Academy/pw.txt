@@ -1,0 +1,77 @@
+Зробити сутності
+
+Сутності:
+-----------------------------
+Student — студент
+
+Id, Name, Email, DateOfBirth
+-----------------------------
+
+Group — група
+
+Id, Name
+----------------------------
+Curators - куратори
+Id, Name, Surname
+----------------------------
+Прив'язати студента до групи та куратора до групи
+Один куратор на одну групу
+Одна група багато студентів
+----------------------------
+ Subject — предмет
+
+Id, Name (обов’язково), Description (необов’язково)
+Встановити required поля (Name)
+Встановити максимальну довжину Name (100 символів)
+---------------------------
+Grade — оцінка студента з предмету
+
+Id, Value (int, 1–12), DateAssigned (DateTime)
+Встановити required поля (Value)
+Встановити максимальну довжину Value (1-12)
+----------------------------
+Між сутностями Оцінки, предмети та студенти потрібно правильно встановити зв'язки
+----------------------------
+
+CRUD SubjectService
+
+Створити SubjectService
+
+Реалізувати методи:
+
+AddSubject(string name, string? description)
+
+GetAllSubjects()
+
+GetSubjectById(int id)
+
+UpdateSubject(int id, string name, string? description)
+
+DeleteSubject(int id)
+
+Перевіряти, що предмет не можна видалити, якщо є оцінки
+-----------------------------
+CRUD GradeService
+
+Створити GradeService
+
+Реалізувати методи:
+
+AddGrade(int studentId, int subjectId, int value)
+
+GetGradesForStudent(int studentId)
+
+GetGradesForSubject(int subjectId)
+
+UpdateGrade(int gradeId, int newValue)
+
+DeleteGrade(int gradeId)
+
+Перевірки:
+
+Value від 1 до 12
+
+Студент і предмет повинні існувати
+-----------------------------------
+Зробити Консольне меню через, яке можна обрати виклик будь-якого метода з сервісів,
+які ви описали
