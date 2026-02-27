@@ -16,6 +16,12 @@ public class AcademyDbContext:DbContext
     {
         
     }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Student>().ToTable("Users");
+        modelBuilder.Entity<Student>().Property(s => s.Name).HasDefaultValue("no name");
+        modelBuilder.Entity<Group>().ToTable(t => t.HasCheckConstraint("constraintName","[Rating] BETWEEN 1 AND 12"));
+    }
 
     //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     //{
