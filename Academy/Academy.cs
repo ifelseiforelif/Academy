@@ -10,12 +10,11 @@ namespace Academy
 {
     class Academy(GroupService _service)
     {
-        public async Task<bool> AddGroup()
+        public async Task<bool> AddGroup(string groupName, int rating)
         {
             try
             {
-                string name = Console.ReadLine() ?? "";
-                await _service.AddGroup(name);
+                await _service.AddGroup(groupName, rating);
                 return true;
             }
             catch (Exception ex)

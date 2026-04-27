@@ -9,7 +9,7 @@ namespace Academy;
 
 internal class Program
 {
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
 
         var services = new ServiceCollection(); //Створюється контейнер DI (Dependency Injection)
@@ -34,12 +34,16 @@ internal class Program
         if (context.Database.CanConnect())
         {
             Console.WriteLine("Пiдключення до БД встановлено");
+            var academy = scope.ServiceProvider.GetRequiredService<Academy>();
+            //var result = await academy.AddGroup();
+            await new Server().RunServer(academy);
+
         }
         else
         {
             Console.WriteLine("Не вдалось підключитись до БД");
         }
-        //var academy = scope.ServiceProvider.GetRequiredService<Academy>();
-        //var result = await academy.AddGroup();
+        
+      
     }
 }
