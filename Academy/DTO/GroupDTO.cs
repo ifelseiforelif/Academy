@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Academy.DTO;
 
-internal class GroupDTO
+internal class GroupDTO //Data Transfer Object
 {
     public string Name {  get; set; } = string.Empty;
     public int Rating { get; set; } = 1;
